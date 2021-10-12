@@ -1,0 +1,24 @@
+uuid: c2dbaa01-ebb1-4648-91be-e829535adff7
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.drupal_today_users
+  module:
+    - views
+  theme:
+    - bartik
+id: drupal_today_users_block_1
+theme: bartik
+region: sidebar_first
+weight: -7
+provider: null
+plugin: 'views_block:drupal_today_users-block_1'
+settings:
+  id: 'views_block:drupal_today_users-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility: {  }
