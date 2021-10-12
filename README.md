@@ -3,6 +3,8 @@
 A simple Drupal 9 project that was created in one day to demonstrate how  
 test-driven development and best practices can be done quickly and efficiently.
 
+It is/will be built from the [`drupal-composer/drupal-project`](https://github.com/drupal-composer/drupal-project) template.
+
 ## Requirements
 
 1. As an anonymous user, I can register and sign in to the website.
@@ -19,13 +21,13 @@ Each Epic will be a pull request, and each pull request will be merged once comm
      1. Implement CI in GitHub actions using existing config from drupal-composer/drupal-project.
      2. Ensure `composer install`, `drush site-install`, `drush user-login`, and `drush status` all pass.
 
-2. Epic: Implement Behavioural Testing.
+2. Epic: Implement Behavioural Testing command.
    - Acceptance Criteria: Simple `behat` tests pass.
    - Tasks: 
      1. Ensure the drupal behat extension is installed and bin/behat runs successfully.
      2. Write a single simple Drupal test with steps to confirm the home page and user creation works.
 
-3. Epic:  Implement Requirements Tests
+3. Epic:  Implement Requirements Tests.
    - Acceptance Criteria: Behavioral tests are defined and indicate failure where new functionality is needed.
    - Tasks:
      1. Write a single Behat feature to define the requirements, including a user story describing the purpose and intent of the feature.
@@ -33,7 +35,7 @@ Each Epic will be a pull request, and each pull request will be merged once comm
      3. Ensure the `behat` steps run until the new functionality is expected.
      4. Change the CI script to allow the new test to fail, so that commit status is passing.
 
-4. Epic: Develop the required Features
+4. Epic: Develop the required Features.
 
     In the "real world", the feature might be best implemented with PHP code or with other modules. 
     It would be up to the development team to determine *how* to implement the features, taking into account
