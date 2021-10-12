@@ -35,27 +35,24 @@ Each Epic will be a pull request, and each pull request will be merged once comm
 
 4. Epic: Develop the required Features
 
-    The purpose of this project is speed, so the development of this feature will be done with Drupal Site Building tools.
-    
-    In the "real world", the feature might be best implemented with PHP code or with other modules.
-
-    It is up to the development team to determine *how* to implement the features, taking into account
+    In the "real world", the feature might be best implemented with PHP code or with other modules. 
+    It would be up to the development team to determine *how* to implement the features, taking into account
     short and long term factors like total maintenance over time.
     
     As a programming exercise, one could ask a developer to replace this functionality with PHP code, 
     using the same functional tests to confirm the desired behavior was implemented.
 
-   - Acceptance Criteria: Behavioral tests confirm the desired functionality is present and working.
-   - Tasks:
-     1. Create a View with a Block display of Users with the correct filters to match the requirements.
-     2. Place the Block in a region and ensure anonymous and authenticated users can see it.
-     3. Allow anonymous users to register and sign in and view their own profiles and nothing else.
-     4. Export the site's config to the git repository.
-     5. Ensure the CI system installs the site from the exported code.
-     6. Ensure the Tests have enough steps to confirm full functionality:
+    However, the purpose of this project is speed, so the development of this feature will be done with Drupal Site Building tools.
+
+    - Acceptance Criteria: Behavioral tests confirm the desired functionality is present and working.
+    - Tasks:
+      1. Create a View with a Block display of Users with the correct filters to match the requirements.
+      2. Place the Block in a region and ensure anonymous and authenticated users can see it.
+      3. Allow anonymous users to register and sign in and view their own profiles and nothing else.
+      4. Export the site's config to the git repository.
+      5. Ensure the CI system installs the site from the exported code.
+      6. Ensure the Tests have enough steps to confirm full functionality:
         1. Test user registration and sign in.
         2. Test block content for anonymous and authenticated users.
         3. Test a new user logging in.
         4. Test the block content for that new user for anonymous and authenticated users.
-
-
