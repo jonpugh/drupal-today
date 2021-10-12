@@ -3,6 +3,8 @@
 A simple Drupal 9 project that was created in one day to demonstrate how  
 test-driven development and best practices can be done quickly and efficiently.
 
+It is/will be built from the [`drupal-composer/drupal-project`](https://github.com/drupal-composer/drupal-project) template.
+
 ## Requirements
 
 1. As an anonymous user, I can register and sign in to the website.
