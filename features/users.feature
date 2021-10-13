@@ -11,6 +11,8 @@ Feature:
     | Ezra     | ezra@drupal.org    | 1      | 1633500000 | 1633500000 |
     | Frances  | frances@drupal.org | 1      | 1633400000 | 1633400000 |
 
+    # @TODO: Disable cache on this block.
+    Then I run drush "cr"
     When I am logged in as "Alex"
     And I am on the homepage
 
