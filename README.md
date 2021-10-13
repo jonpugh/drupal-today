@@ -37,11 +37,11 @@ This allows both local development and CI systems to use the exact same commands
 
 Each Epic will be a pull request, and each pull request will be merged once commit status passes.
 
-1. Epic: Create codebase and enable basic CI.
+1. Epic #1: Create codebase and enable basic CI.
    - Acceptance Criteria: Drupal site installs.
    - Tasks:
-     1. Implement CI in GitHub actions using existing config from drupal-composer/drupal-project.
-     2. Ensure `composer install`, `drush site-install`, `drush user-login`, and `drush status` all pass.
+     1. [x] Implement CI in GitHub actions using existing config from drupal-composer/drupal-project.
+     2. [x] Ensure `composer install`, `drush site-install`, `drush user-login`, and `drush status` all pass.
 
 2. Epic: Implement Behavioural Testing command.
    - Acceptance Criteria: Simple `behat` tests pass.
