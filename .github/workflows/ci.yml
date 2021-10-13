@@ -56,7 +56,10 @@ jobs:
       - if: matrix.drupal-release == 'dev'
         run: composer --verbose update
 
-      - name: Launch server and install Drupal.
+      - name: Run Server
+        run: drush runserver http://localhost:8080 &
+
+      - name: Install Drupal.
         run: composer launch --profile
 
       - name: Run Behavioral Tests

@@ -59,13 +59,15 @@
         "post-update-cmd": [
             "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
         ],
+        "server": [
+            "drush runserver http://localhost:8080 &"
+        ],
         "launch": [
             "# Welcome to Drupal Today Launch Command!",
             "# This command will DESTROY EXISTING DATA!",
             "# Hit CTRL-C within the next 3 seconds to save your existing site.",
             "sleep 3",
             "drush site-install minimal --existing-config --verbose --yes --db-url=sqlite://tmp/site.sqlite",
-            "drush runserver http://localhost:8080 &",
             "until curl -s http://localhost:8080; do true; done > /dev/null",
             "vendor/bin/drush user:login --uri http://localhost:8080"
         ]
