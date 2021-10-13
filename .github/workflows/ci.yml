@@ -60,7 +60,10 @@ jobs:
         run: drush runserver http://localhost:8080 &
 
       - name: Install Drupal.
-        run: composer launch --profile
+        run: |
+          drush site-install minimal --existing-config --verbose --yes --db-url=sqlite://tmp/site.sqlite
+          until curl -s http://localhost:8080; do true; done > /dev/null
+          drush user:login --uri http://localhost:8080
 
       - name: Run Behavioral Tests
         run: behat
