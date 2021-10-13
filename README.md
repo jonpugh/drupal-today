@@ -46,8 +46,9 @@ Each Epic will be a pull request, and each pull request will be merged once comm
 2. Epic: Implement Behavioural Testing command.
    - Acceptance Criteria: Simple `behat` tests pass.
    - Tasks:
-     1. Ensure the drupal behat extension is installed and bin/behat runs successfully.
-     2. Write a single simple Drupal test with steps to confirm the home page and user creation works.
+     1. [x] Ensure the drupal behat extension is installed and bin/behat runs successfully.
+     2. [x] Complete behat setup using `behat --init` and creating the behat.yml file.
+     3. [x] Write a single simple Drupal test with steps to confirm the home page and user creation works.
 
 3. Epic:  Implement Requirements Tests.
    - Acceptance Criteria: Behavioral tests are defined and indicate failure where new functionality is needed.
