@@ -20,7 +20,7 @@ default:
       blackbox: ~
       api_driver: 'drupal'
       drush:
-        alias: 'local'
+        alias: 'self'
       drupal:
         drupal_root: './web'
       region_map:
