@@ -28,6 +28,7 @@ class RecentUsersBlock extends BlockBase {
 
     $results = $query->condition($group)
       ->condition('status', 1)
+      ->condition('uid', 1, '!=')
       ->sort('login', DESC)
       ->range(0, 5)
       ->execute()
