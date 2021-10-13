@@ -56,4 +56,9 @@ jobs:
       - if: matrix.drupal-release == 'dev'
         run: composer --verbose update
 
-      - run: composer launch --profile
+      - name: Launch server and install Drupal.
+        run: composer launch --profile
+
+      - name: Run Behavioral Tests
+        run: behat
+
