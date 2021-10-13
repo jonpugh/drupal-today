@@ -57,13 +57,13 @@ jobs:
         run: composer --verbose update
 
       - name: Run Server
-        run: drush runserver http://localhost:8080 &
+        run: bin/drush runserver http://localhost:8080 &
 
       - name: Install Drupal.
         run: |
-          drush site-install minimal --existing-config --verbose --yes --db-url=sqlite://tmp/site.sqlite
+          bin/drush site-install minimal --existing-config --verbose --yes --db-url=sqlite://tmp/site.sqlite
           until curl -s http://localhost:8080; do true; done > /dev/null
-          drush user:login --uri http://localhost:8080
+          bin/drush user:login --uri http://localhost:8080
 
       - name: Run Behavioral Tests
         run: behat
