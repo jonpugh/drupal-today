@@ -39,7 +39,7 @@ Feature:
     Then I should see the text "PLACEHOLDER BODY"
 
   Scenario: Create and view a node with fields
-    Given I am viewing an "Article" content:
+    Given I am viewing an "article" content:
     | title | My article with fields! |
     | body  | A placeholder           |
     Then I should see the heading "My article with fields!"
@@ -71,7 +71,7 @@ Feature:
     | Tag one |
     | Tag two |
     And I am logged in as a user with the "administrator" role
-    When I go to "admin/structure/taxonomy/tags"
+    When I go to "admin/structure/taxonomy/manage/tags/overview"
     Then I should see "Tag one"
     And I should see "Tag two"
 
