@@ -29,7 +29,9 @@ class RecentUsersBlock extends BlockBase {
     $results = $query->condition($group)
       ->condition('status', 1)
       ->sort('login', DESC)
-      ->execute();
+      ->range(0, 5)
+      ->execute()
+    ;
 
     $build['users'] = [
       '#theme' => 'item_list',
