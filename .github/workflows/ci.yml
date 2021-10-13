@@ -20,9 +20,6 @@ jobs:
           - php-versions: '8.0'
             drupal-release: dev
             composer-channel: stable
-          - php-versions: '8.0'
-            drupal-release: stable
-            composer-channel: snapshot
     steps:
       - name: Dump matrix context
         env:
@@ -56,9 +53,9 @@ jobs:
       - if: matrix.drupal-release == 'dev'
         run: composer --verbose update
 
-      - run: ./vendor/bin/drush site-install --verbose --yes --db-url=sqlite://tmp/site.sqlite
+      - run: ./bin/drush site-install minimal --existing-config --verbose --yes --db-url=sqlite://tmp/site.sqlite
 
-      - run: ./vendor/bin/drush runserver $SIMPLETEST_BASE_URL &
+      - run: ./bin/drush runserver $SIMPLETEST_BASE_URL &
 
       - run: until curl -s $SIMPLETEST_BASE_URL; do true; done > /dev/null
 
@@ -68,6 +65,8 @@ jobs:
         run: composer require phpspec/prophecy-phpunit:^2
 
       - name: Run a single unit test to verfiy the testing setup.
-        run: ./vendor/bin/phpunit -c ./web/core ./web/core/modules/user/tests/src/Unit/UserAccessControlHandlerTest.php
+        run: ./bin/phpunit -c ./web/core ./web/core/modules/user/tests/src/Unit/UserAccessControlHandlerTest.php
 
-      - run: ./vendor/bin/drush
+      - name: Run Behavioral Tests
+        run: ./bin/behat --colors
+

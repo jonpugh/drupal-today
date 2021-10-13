@@ -21,6 +21,7 @@
         "cweagans/composer-patches": "^1.7",
         "drupal/core-composer-scaffold": "^9.1",
         "drupal/core-recommended": "^9.1",
+        "drupal/drupal-extension": "^4.1",
         "drush/drush": "^10.3",
         "vlucas/phpdotenv": "^5.1",
         "webflo/drupal-finder": "^1.2"
@@ -35,6 +36,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
+        "bin-dir": "bin",
         "discard-changes": true,
         "sort-packages": true
     },
@@ -56,6 +58,18 @@
         ],
         "post-update-cmd": [
             "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+        ],
+        "server": [
+            "drush runserver http://localhost:8080 &"
+        ],
+        "launch": [
+            "# Welcome to Drupal Today Launch Command!",
+            "# This command will DESTROY EXISTING DATA!",
+            "# Hit CTRL-C within the next 3 seconds to save your existing site.",
+            "sleep 3",
+            "drush site-install minimal --existing-config --verbose --yes --db-url=sqlite://tmp/site.sqlite",
+            "until curl -s http://localhost:8080; do true; done > /dev/null",
+            "vendor/bin/drush user:login --uri http://localhost:8080"
         ]
     },
     "extra": {

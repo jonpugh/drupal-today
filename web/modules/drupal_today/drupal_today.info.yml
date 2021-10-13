@@ -1,0 +1,6 @@
+name: Drupal Today
+type: module
+description: Custom module example, created with &#039;drush generate module&#039;
+package: Drupal Today
+core: 8.x
+core_version_requirement: ^8 || ^9

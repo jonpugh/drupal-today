@@ -6,6 +6,7 @@
 /web/themes/contrib/
 /web/profiles/contrib/
 /web/libraries/
+/bin
 
 # Ignore sensitive information
 /web/sites/*/settings.php
@@ -23,3 +24,5 @@
 
 # Ignore .env files as they are personal
 /.env
+/.editorconfig
+/.gitattributes
