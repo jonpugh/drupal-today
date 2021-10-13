@@ -3,9 +3,31 @@
 A simple Drupal 9 project that was created in one day to demonstrate how  
 test-driven development and best practices can be done quickly and efficiently.
 
-It is/will be built from the [`drupal-composer/drupal-project`](https://github.com/drupal-composer/drupal-project) template.
+It is built from the [`drupal-composer/drupal-project`](https://github.com/drupal-composer/drupal-project) template.
 
-## Requirements
+## System Requirements
+
+This project is tested using PHP's built-in webserver and SQLite for speed and simplicity.
+
+The PHP versions that are tested are defined in [GitHub Actions config file ci.yml](./.github/workflows/ci.yml):
+
+- 7.3
+- 7.4
+- 8.0
+
+## Development & Testing
+
+To develop this project, install `git`, `php` and `composer` command line tools, then:
+
+    git clone git@github.com:jonpugh/drupal-today.git
+    composer install
+    composer launch
+
+The `composer launch` command is a custom script defined in `composer.json`.
+
+This allows both local development and CI systems to use the exact same commands.
+
+## Functional Requirements
 
 1. As an anonymous user, I can register and sign in to the website.
 2. As an anonymous user, I can see a list of the last 5 users who signed in.
