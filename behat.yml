@@ -21,6 +21,7 @@ default:
       api_driver: 'drupal'
       drush:
         alias: 'self'
+        binary: 'bin/drush'
       drupal:
         drupal_root: './web'
       region_map:
