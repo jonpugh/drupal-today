@@ -56,15 +56,20 @@ jobs:
       - if: matrix.drupal-release == 'dev'
         run: composer --verbose update
 
-      - name: Run Server
-        run: bin/drush runserver http://localhost:8080 &
+      - run: ./bin/drush site-install minimal --existing-config --verbose --yes --db-url=sqlite://tmp/site.sqlite
 
-      - name: Install Drupal.
-        run: |
-          bin/drush site-install minimal --existing-config --verbose --yes --db-url=sqlite://tmp/site.sqlite
-          until curl -s http://localhost:8080; do true; done > /dev/null
-          bin/drush user:login --uri http://localhost:8080
+      - run: ./bin/drush runserver $SIMPLETEST_BASE_URL &
+
+      - run: until curl -s $SIMPLETEST_BASE_URL; do true; done > /dev/null
+
+        # https://www.drupal.org/project/drupal/issues/3182653
+        # https://www.drupal.org/node/3176567
+      - if: ${{ matrix.php-versions == '7.4' }} || ${{ matrix.php-versions == '8.0' }}
+        run: composer require phpspec/prophecy-phpunit:^2
+
+      - name: Run a single unit test to verfiy the testing setup.
+        run: ./bin/phpunit -c ./web/core ./web/core/modules/user/tests/src/Unit/UserAccessControlHandlerTest.php
 
       - name: Run Behavioral Tests
-        run: behat
+        run: ./bin/behat
 
