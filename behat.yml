@@ -1,0 +1,27 @@
+# See https://behat-drupal-extension.readthedocs.io/en/v4.0.1/drupalapi.html
+default:
+  suites:
+    default:
+      contexts:
+        - FeatureContext
+        - Drupal\DrupalExtension\Context\DrupalContext
+        - Drupal\DrupalExtension\Context\MinkContext
+        - Drupal\DrupalExtension\Context\MessageContext
+        - Drupal\DrupalExtension\Context\DrushContext
+  extensions:
+    Drupal\MinkExtension:
+      goutte: ~
+      selenium2: ~
+      # This will change in other systems. Create a "profile" or use environment variable BEHAT_PARAMS.
+      base_url: http://localhost:8080
+      show_cmd: "google-chrome %s"
+
+    Drupal\DrupalExtension:
+      blackbox: ~
+      api_driver: 'drupal'
+      drush:
+        alias: 'local'
+      drupal:
+        drupal_root: './web'
+      region_map:
+        footer: "#footer"
