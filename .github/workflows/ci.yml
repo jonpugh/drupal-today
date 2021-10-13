@@ -71,5 +71,5 @@ jobs:
         run: ./bin/phpunit -c ./web/core ./web/core/modules/user/tests/src/Unit/UserAccessControlHandlerTest.php
 
       - name: Run Behavioral Tests
-        run: ./bin/behat
+        run: ./bin/behat --colors
 
